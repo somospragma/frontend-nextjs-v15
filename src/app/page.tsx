@@ -1,7 +1,19 @@
+'use client';
 import Image from "next/image";
 import styles from "./page.module.css";
+import {
+  NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
+  NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+} from "@/config/environments";
 
 export default function Home() {
+  console.log(
+    "Priv:",
+    NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
+    "Public:",
+    NEXT_PUBLIC_CONTENTFUL_SPACE_ID
+  );
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
