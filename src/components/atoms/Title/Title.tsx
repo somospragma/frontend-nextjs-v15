@@ -1,8 +1,9 @@
-import { FC } from "react";
+import { FC } from 'react';
+
 import {
   NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
-  NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
-} from "@/config/environments";
+  NEXT_PUBLIC_CONTENTFUL_SPACE_ID
+} from '@/config/environments';
 
 interface Props {
   title: string;
@@ -10,9 +11,9 @@ interface Props {
 
 export const Title: FC<Props> = ({ title }) => {
   console.log(
-    "Priv:",
+    'Priv:',
     NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
-    "Public:",
+    'Public:',
     NEXT_PUBLIC_CONTENTFUL_SPACE_ID
   );
   return <div>{title}</div>;
