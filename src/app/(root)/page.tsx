@@ -1,22 +1,31 @@
-'use client';
 import Image from "next/image";
 import styles from "./page.module.scss";
-import {
+// import type { Metadata } from "next";
+/* import {
   NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
   NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
-} from "@/config/environments";
+} from "@/config/environments"; */
+import { Title } from "@/components/atoms";
+
+/* export const generateMetadata = async (): Promise<Metadata> => {
+  return {
+    title: "Home Page - My Static App",
+    description: "This is a statically generated page with SEO metadata.",
+  };
+}; */
 
 export default function Home() {
-  console.log(
+  /* console.log(
     "Priv:",
     NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
     "Public:",
     NEXT_PUBLIC_CONTENTFUL_SPACE_ID
-  );
+  ); */
 
   return (
     <div className={styles.page}>
       <main className={styles.main}>
+        <Title title="Home Page" />
         <Image
           className={styles.logo}
           src="/next.svg"
