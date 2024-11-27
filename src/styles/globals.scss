@@ -10,8 +10,8 @@ body {
 }
 
 body {
-  color: $neutral-black;
-  background: $neutral-000;
+  color: variables.$neutral-000;
+  background: variables.$neutral-black;
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
