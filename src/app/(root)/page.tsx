@@ -3,8 +3,9 @@ import Image from 'next/image';
 import { Title } from '@/components/atoms';
 
 import styles from './page.module.scss';
-// import type { Metadata } from "next";
-/* import {
+
+/* import type { Metadata } from "next";
+import {
   NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
   NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
 } from "@/config/environments"; */
