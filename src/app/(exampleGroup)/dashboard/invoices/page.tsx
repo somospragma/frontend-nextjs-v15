@@ -1,3 +1,10 @@
+import { Title } from '@/components/atoms';
+
 export default function Page() {
-  return <p>Invoices Page</p>;
+  return (
+    <div>
+      <p>Invoices Page</p>
+      <Title title='' />
+    </div>
+  );
 }

@@ -1,3 +1,4 @@
+'use client'; // * Important: This not change render type on Pages
 import { ReactNode } from 'react';
 
 export default function Layout({ children }: Readonly<{ children: ReactNode }>) {

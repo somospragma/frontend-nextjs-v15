@@ -1,3 +1,11 @@
+'use client';
+import { Title } from '@/components/atoms';
+
 export default function Page() {
-  return <p>Customers Page</p>;
+  return (
+    <div>
+      <p>Customers Page</p>
+      <Title title='' />
+    </div>
+  );
 }

@@ -1,3 +1,4 @@
+'use client'; // ! Its mandatory to type 'use client' on each page where its needed, it doesnt affect child pages/routes.
 import Image from 'next/image';
 
 import { Title } from '@/components/atoms';
@@ -5,12 +6,7 @@ import { Title } from '@/components/atoms';
 import styles from './page.module.scss';
 
 /* import type { Metadata } from "next";
-import {
-  NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
-  NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
-} from "@/config/environments"; */
-
-/* export const generateMetadata = async (): Promise<Metadata> => {
+  export const generateMetadata = async (): Promise<Metadata> => {
   return {
     title: "Home Page - My Static App",
     description: "This is a statically generated page with SEO metadata.",
@@ -18,13 +14,6 @@ import {
 }; */
 
 export default function Home() {
-  /* console.log(
-    "Priv:",
-    NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
-    "Public:",
-    NEXT_PUBLIC_CONTENTFUL_SPACE_ID
-  ); */
-
   return (
     <div className={styles.page}>
       <main className={styles.main}>
