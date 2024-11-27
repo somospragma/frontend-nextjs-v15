@@ -1,6 +1,6 @@
 'use client';
 import Image from "next/image";
-import styles from "./page.module.css";
+import styles from "./page.module.scss";
 import {
   NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
   NEXT_PUBLIC_CONTENTFUL_SPACE_ID,

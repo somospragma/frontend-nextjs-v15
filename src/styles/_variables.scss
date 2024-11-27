@@ -1,0 +1,157 @@
+/*--Colores--*/
+$mask-background: rgba(0, 0, 0, 0.5);
+
+/*--primary--*/
+$primary-100: #eef2f7;
+$primary-200: #b6c5df;
+$primary-300: #7b97c8;
+$primary-400: #3f66b3;
+$primary-500: #0033a0;
+$primary-600: #0b2987;
+$primary-700: #13236f;
+$primary-800: #1a205a;
+$primary-900: #1e1f47;
+
+/*--accented--*/
+$accented-100: #fffebf;
+$accented-200: #fffd93;
+$accented-300: #fefa6c;
+$accented-400: #f5f548;
+$accented-500: #e3e829;
+$accented-600: #dfde1f;
+$accented-700: #d4ce17;
+$accented-800: #c9bd0f;
+$accented-900: #b8ac08;
+
+/*--complementary--*/
+$complementary-100: #b8f5f6;
+$complementary-200: #8ae9ee;
+$complementary-300: #5cd9e3;
+$complementary-400: #2ec5d6;
+$complementary-500: #00aec7;
+$complementary-600: #00a6b9;
+$complementary-700: #009ca8;
+$complementary-800: #009097;
+$complementary-900: #008283;
+
+/*--neutral--*/
+$neutral-000: #fff;
+$neutral-100: #fafbfc;
+$neutral-200: #e2e7ed;
+$neutral-300: #cbd1de;
+$neutral-400: #b4bcce;
+$neutral-500: #9da5be;
+$neutral-600: #7f839b;
+$neutral-700: #626277;
+$neutral-800: #464454;
+$neutral-900: #292730;
+$neutral-black: #000;
+
+/*--info--*/
+$info-100: #ebf6fd;
+$info-200: #c0e4f8;
+$info-300: #95d3f3;
+$info-400: #6bc4ed;
+$info-500: #41b6e6;
+$info-600: #378ec1;
+$info-700: #2d6b9c;
+$info-800: #224b77;
+$info-900: #183053;
+
+/*--success--*/
+$success-100: #f3fbe8;
+$success-200: #d8f2ae;
+$success-300: #bfe974;
+$success-400: #aae03a;
+$success-500: #97d700;
+$success-600: #74ab0b;
+$success-700: #568312;
+$success-800: #3e5f15;
+$success-900: #2a3f15;
+
+/*--warning--*/
+$warning-100: #fff9ef;
+$warning-200: #ffe9c2;
+$warning-300: #fdda97;
+$warning-400: #f8cc6e;
+$warning-500: #f1be48;
+$warning-600: #c49f37;
+$warning-700: #957d27;
+$warning-800: #655718;
+$warning-900: #332e0b;
+
+/*--danger--*/
+$danger-100: #ffeeee;
+$danger-200: #ffbdbe;
+$danger-300: #ff8f8f;
+$danger-400: #ff6663;
+$danger-500: #f9423a;
+$danger-600: #cb382b;
+$danger-700: #992d1e;
+$danger-800: #662112;
+$danger-900: #331208;
+
+$mask-color: rgba(255, 255, 255, 0.7);
+
+/*--Shadows--*/
+$shadow-xxs: 0px 1px 3px rgba(149, 150, 153, 0.2),
+    0px 2px 1px rgba(149, 150, 153, 0.12),
+    0px 1px 1px rgba(149, 150, 153, 0.12);
+$shadow-xs: 0px 1px 5px rgba(149, 150, 153, 0.2),
+    0px 3px 1px rgba(149, 150, 153, 0.12),
+    0px 2px 2px rgba(149, 150, 153, 0.14);
+$shadow-s: 0px 2px 4px rgba(149, 150, 153, 0.2),
+    0px 1px 10px rgba(149, 150, 153, 0.12),
+    0px 4px 5px rgba(149, 150, 153, 0.14);
+$shadow-m: 0px 5px 5px rgba(149, 150, 153, 0.2),
+    0px 3px 14px rgba(149, 150, 153, 0.12),
+    0px 8px 10px rgba(149, 150, 153, 0.14);
+$shadow-l: 0px 8px 10px rgba(149, 150, 153, 0.2),
+    0px 6px 30px rgba(149, 150, 153, 0.12),
+    0px 16px 24px rgba(149, 150, 153, 0.14);
+$shadow-xl: 0px 11px 15px rgba(149, 150, 153, 0.2),
+    0px 9px 46px rgba(149, 150, 153, 0.12),
+    0px 24px 38px rgba(149, 150, 153, 0.14);
+
+//* Typographies
+$font-family-primary-regular: 'Roboto-Regular', 'Arial', 'Helvetica', sans-serif;
+$font-family-primary-medium: 'Roboto-Medium', 'Arial', 'Helvetica', sans-serif;
+$font-family-primary-bold: 'Roboto-Bold', 'Arial', 'Helvetica', sans-serif;
+$font-family-primary-black: 'Roboto-Black', 'Arial', 'Helvetica', sans-serif;
+
+//* Shadows
+$shadow-xs: 0px 3px 6px 0px #00000029;
+$shadow-regular: 0px 4px 4px 0px #0000001f;
+$shadow-medium: 0px 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-large: 0px 4px 12px 0px #0000001f;
+$shadow-xlarge: 0px 15px 25px 0px rgba(0, 0, 0, 0.2);
+
+//* Breakpoints
+$base-font-size: 16px;
+$breakpoint-xs: 0;
+$breakpoint-sm: calc(600px / $base-font-size * 1rem);
+$breakpoint-md: calc(900px / $base-font-size * 1rem);
+$breakpoint-lg: calc(1200px / $base-font-size * 1rem);
+$breakpoint-xl: calc(1536px / $base-font-size * 1rem);
+$breakpoint-xxl: calc(1536px / $base-font-size * 1rem);
+$half-pixel-rem: calc(0.5px / $base-font-size * 1rem);
+
+//* Transparencies
+$transparency-xs: 0.05;
+$transparency-sm: 0.1;
+$transparency-sm-md: 0.25;
+$transparency-md: 0.3;
+$transparency-lg: 0.5;
+$transparency-xlg: 0.6;
+$transparency-xl: 0.7;
+$transparency-xxl: 0.9;
+
+
+//* Z index values
+$z-index-low: 9;
+$z-index-medium: 10;
+$z-index-high: 100;
+
+//* Gradients
+$gradient-primary: linear-gradient(45deg, #ff6f00, #ff8e53);
+$gradient-banner-primary: linear-gradient(90deg, $neutral-black 0%, rgba($neutral-black, $transparency-lg) 100%);

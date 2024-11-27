@@ -1,0 +1,69 @@
+@use 'variables';
+
+@mixin from($size) {
+  @media screen and (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin until($size) {
+  @media screen and (max-width: $size) {
+    @content;
+  }
+}
+
+@mixin truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin scrollBar(
+  $color: #b2b2b2,
+  $width: 4px,
+  $radius: 20px,
+  $track-color: transparent,
+  $track-radius: 0,
+  $thumb: none,
+  $height: inherit
+) {
+  // Firefox
+  scrollbar-color: $color $track-color;
+  scrollbar-width: thin;
+
+  ::-webkit-scrollbar {
+    width: $width;
+    height: $height;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: $track-color;
+    border-radius: $track-radius;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $thumb;
+    background-color: $color;
+    border-radius: $radius;
+  }
+
+  ::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+}
+
+/* Pixels to rem */
+@function size($target, $context: $base-font-size) {
+  @return calc($target / $context) * 1rem;
+}
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

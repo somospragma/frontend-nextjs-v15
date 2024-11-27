@@ -1,0 +1,18 @@
+@use 'variables';
+@use 'mixins';
+@use 'reset';
+
+html,
+body {
+  box-sizing: border-box; // CUAL DEJAR
+  height: 100%;
+  background-color: $primary-100;
+}
+
+html {
+  transition: font-size 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
