@@ -1,17 +1,15 @@
-'use client'; // ! Its mandatory to type 'use client' on each page where its needed, it doesnt affect child pages/routes.
+// ! Its mandatory to type 'use client' on each page where its needed, it doesnt affect child pages/routes.
+import type { Metadata } from 'next';
 import Image from 'next/image';
 
 import { Title } from '@/components/atoms';
 
 import styles from './page.module.scss';
 
-/* import type { Metadata } from "next";
-  export const generateMetadata = async (): Promise<Metadata> => {
-  return {
-    title: "Home Page - My Static App",
-    description: "This is a statically generated page with SEO metadata.",
-  };
-}; */
+export const metadata: Metadata = {
+  title: 'Home Page - My Static App',
+  description: 'This is a statically generated page with SEO metadata.'
+};
 
 export default function Home() {
   return (
