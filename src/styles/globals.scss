@@ -1,5 +1,5 @@
-@use 'variables';
-@use 'mixins';
+@use 'variables' as *;
+@use 'mixins' as *;
 @use 'reset';
 
 html,
@@ -10,8 +10,8 @@ body {
 }
 
 body {
-  color: variables.$neutral-000;
-  background: variables.$neutral-black;
+  color: $neutral-black;
+  background-color: $neutral-100;
   font-family: var(--font-roboto), Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
