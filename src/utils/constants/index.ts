@@ -1,1 +1,1 @@
-export { NUMBER_ZERO, NUMBER_ONE, NUMBER_TWO } from './constants';
+export { NUMBER_ZERO, NUMBER_ONE, NUMBERS } from './constants';

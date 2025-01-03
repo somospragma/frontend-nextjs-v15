@@ -94,24 +94,30 @@ $danger-900: #331208;
 $mask-color: rgba(255, 255, 255, 0.7);
 
 /*--Shadows--*/
-$shadow-xxs: 0px 1px 3px rgba(149, 150, 153, 0.2),
-    0px 2px 1px rgba(149, 150, 153, 0.12),
-    0px 1px 1px rgba(149, 150, 153, 0.12);
-$shadow-xs: 0px 1px 5px rgba(149, 150, 153, 0.2),
-    0px 3px 1px rgba(149, 150, 153, 0.12),
-    0px 2px 2px rgba(149, 150, 153, 0.14);
-$shadow-s: 0px 2px 4px rgba(149, 150, 153, 0.2),
-    0px 1px 10px rgba(149, 150, 153, 0.12),
-    0px 4px 5px rgba(149, 150, 153, 0.14);
-$shadow-m: 0px 5px 5px rgba(149, 150, 153, 0.2),
-    0px 3px 14px rgba(149, 150, 153, 0.12),
-    0px 8px 10px rgba(149, 150, 153, 0.14);
-$shadow-l: 0px 8px 10px rgba(149, 150, 153, 0.2),
-    0px 6px 30px rgba(149, 150, 153, 0.12),
-    0px 16px 24px rgba(149, 150, 153, 0.14);
-$shadow-xl: 0px 11px 15px rgba(149, 150, 153, 0.2),
-    0px 9px 46px rgba(149, 150, 153, 0.12),
-    0px 24px 38px rgba(149, 150, 153, 0.14);
+$shadow-xxs:
+  0px 1px 3px rgba(149, 150, 153, 0.2),
+  0px 2px 1px rgba(149, 150, 153, 0.12),
+  0px 1px 1px rgba(149, 150, 153, 0.12);
+$shadow-xs:
+  0px 1px 5px rgba(149, 150, 153, 0.2),
+  0px 3px 1px rgba(149, 150, 153, 0.12),
+  0px 2px 2px rgba(149, 150, 153, 0.14);
+$shadow-s:
+  0px 2px 4px rgba(149, 150, 153, 0.2),
+  0px 1px 10px rgba(149, 150, 153, 0.12),
+  0px 4px 5px rgba(149, 150, 153, 0.14);
+$shadow-m:
+  0px 5px 5px rgba(149, 150, 153, 0.2),
+  0px 3px 14px rgba(149, 150, 153, 0.12),
+  0px 8px 10px rgba(149, 150, 153, 0.14);
+$shadow-l:
+  0px 8px 10px rgba(149, 150, 153, 0.2),
+  0px 6px 30px rgba(149, 150, 153, 0.12),
+  0px 16px 24px rgba(149, 150, 153, 0.14);
+$shadow-xl:
+  0px 11px 15px rgba(149, 150, 153, 0.2),
+  0px 9px 46px rgba(149, 150, 153, 0.12),
+  0px 24px 38px rgba(149, 150, 153, 0.14);
 
 //* Typographies
 $font-family-primary-regular: 'Roboto-Regular', 'Arial', 'Helvetica', sans-serif;
@@ -146,7 +152,6 @@ $transparency-xlg: 0.6;
 $transparency-xl: 0.7;
 $transparency-xxl: 0.9;
 
-
 //* Z index values
 $z-index-low: 9;
 $z-index-medium: 10;
@@ -154,4 +159,8 @@ $z-index-high: 100;
 
 //* Gradients
 $gradient-primary: linear-gradient(45deg, #ff6f00, #ff8e53);
-$gradient-banner-primary: linear-gradient(90deg, $neutral-black 0%, rgba($neutral-black, $transparency-lg) 100%);
+$gradient-banner-primary: linear-gradient(
+  90deg,
+  $neutral-black 0%,
+  rgba($neutral-black, $transparency-lg) 100%
+);
