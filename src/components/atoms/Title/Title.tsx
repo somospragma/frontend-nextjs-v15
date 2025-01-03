@@ -6,7 +6,9 @@ interface Props {
   title: string;
 }
 
-export const Title: FC<Props> = ({ title }) => {
+const Title: FC<Props> = ({ title }) => {
   console.log('Priv:', PRIVATE_ENDPOINT, 'Public:', PREFIX_PATH);
-  return <div>{title}</div>;
+  return <h1>{title}</h1>;
 };
+
+export default Title;

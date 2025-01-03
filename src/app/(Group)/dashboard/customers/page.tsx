@@ -1,4 +1,5 @@
 'use client';
+
 import { Title } from '@/components/atoms';
 
 export default function Page() {

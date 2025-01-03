@@ -1,6 +1,6 @@
 import { screen, render } from '@testing-library/react';
 
-import { Title } from './Title';
+import Title from './Title';
 
 describe('Title tests', () => {
   const titleString = 'Title';
