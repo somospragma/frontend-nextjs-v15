@@ -1,20 +1,12 @@
 import { FC } from 'react';
 
-import {
-  NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
-  NEXT_PUBLIC_CONTENTFUL_SPACE_ID
-} from '@/config/environments';
+import { PREFIX_PATH, PRIVATE_ENDPOINT } from '@/config/environments';
 
 interface Props {
   title: string;
 }
 
 export const Title: FC<Props> = ({ title }) => {
-  console.log(
-    'Priv:',
-    NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
-    'Public:',
-    NEXT_PUBLIC_CONTENTFUL_SPACE_ID
-  );
+  console.log('Priv:', PRIVATE_ENDPOINT, 'Public:', PREFIX_PATH);
   return <div>{title}</div>;
 };

@@ -1,6 +1,6 @@
 'use client'; // * Important: This not change render type on Pages
 
-import { geistSans, geistMono } from '@/config/fonts';
+import { roboto, robotoItalic } from '@/config/fonts';
 import '@/styles/globals.scss';
 
 export default function RootLayout({
@@ -10,7 +10,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='es'>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
+      <body className={`${roboto.variable} ${robotoItalic.variable}`}>{children}</body>
     </html>
   );
 }
