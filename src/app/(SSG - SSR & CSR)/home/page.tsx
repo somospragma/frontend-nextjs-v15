@@ -1,4 +1,4 @@
-import ClientComponent from './ClientComponent';
+import { ClientComponent } from './clientComponent';
 
 export const metadata = {
   title: 'Página con Server y Client Components',
@@ -16,6 +16,7 @@ export default async function Page() {
     <main>
       <h1>Datos cargados desde el servidor:</h1>
       <p>{data.message}</p>
+      <br />
       <ClientComponent initialMessage={data.message} />
     </main>
   );

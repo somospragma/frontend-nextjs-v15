@@ -1,4 +1,5 @@
 // ! Its mandatory to type 'use client' on each page where its needed, it doesnt affect child pages/routes.
+
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {

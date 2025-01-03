@@ -13,7 +13,8 @@ export default async function Page() {
 
   return (
     <section>
-      <h1>This is the page in the LOGIN path</h1>
+      <h1>This is the page in the &quot;json-info&quot; path:</h1>
+      <br />
       <p>{JSON.stringify(data)}</p>
     </section>
   );
