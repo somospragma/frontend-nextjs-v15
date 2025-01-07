@@ -10,7 +10,7 @@ import { transformToCapital, transformToLowerCase, transformToNumber } from '@/u
 export const metadata: Metadata = {
   title: 'Home Page - My Static App',
   description: 'This is a statically generated page with SEO metadata.'
-};
+}; // ! Poner en README cuál Metadata elegir.
 
 export default function Home() {
   // Test the helpers and constans
