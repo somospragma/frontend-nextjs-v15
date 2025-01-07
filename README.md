@@ -245,97 +245,24 @@ Las interfaces o types transversales se ubicarán en `src/types/`.
 
 Los datos de SEO se configuran en cada página, se muestran 2 ejemplos de cómo hacerlo hacerlo en Next, pero se recomienda implementar el de `/app/(root)/page.tsx`. No se ha agregado ninguna implementación específica de cómo manejar el SEO más allá de hacerlo en la página y dejar las meta etiquetas generales en el layout (Next genera las más básicas por defecto, como el viewport).
 
-Además, se recomienda validar métricas de SEO, accesibilidad y perfomance web después de cada desarrollo, utilizando herramientas como [pagespeed.dev](https://pagespeed.web.dev/) y [Axe DevTools](https://axe.deque.com/axe-devtools).
+Además, se recomienda validar métricas de SEO, accesibilidad y perfomance web después de cada desarrollo, utilizando herramientas como [pagespeed.dev](https://pagespeed.web.dev/) y [Axe DevTools](https://axe.deque.com/axe-devtools); así como extensiones como `axe Accessibility Linter`.
 
 #### Testing
 
-Las pruebas unitarias se realizan con [Jest](https://jestjs.io/) y [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/). Los mocks se encuentran en `src/__mocks__`, mientras que los tests de cada componente están ubicados en la carpeta correspondiente al componente, por ejemplo, `src/components/atoms/Image/Image.spec.tsx`.
+Las pruebas unitarias se realizan con [Jest](https://jestjs.io/) y [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/). Los mocks se encuentran en `src/shared/mocks`, mientras que los tests de cada componente están ubicados en la carpeta correspondiente al componente, por ejemplo, `src/components/atoms/Image/Image.spec.tsx`.
 
 Para ejecutar las pruebas unitarias y obtener el coverage, ejecute:
 
 ```sh
 npm run test
-npm run coverage
+npm run test:coverage
 ```
 
 ### Guías adicionales
 
-#### Docker en local
-
-Para ejecutar el contenedor Docker en su entorno local, siga estos pasos. Tenga en cuenta que las instrucciones proporcionadas están diseñadas para el ambiente de desarrollo. Realice los ajustes necesarios para otros ambientes.
-
-1. Instalación de Docker: Instale Docker Desktop o configure Docker en WSL.
-
-2. Creación de la imagen Docker:
-
-   ```bash
-     docker build --no-cache --tag=749892430062.dkr.ecr.us-east-1.amazonaws.com/comfama/agenda-home:latest -f dockerfile.development .
-   ```
-
-   Este comando generará la imagen del proyecto basándose en el archivo `dockerfile.development`. Existen otros archivos Docker (`dockerfile.qa` y `dockerfile.pdn`) para diferentes ambientes.
-
-3. Creación del Contenedor:
-
-   ```bash
-   docker run -d -p 80:8080 --name agenda-dev <image-id>
-   ```
-
-   En este ejemplo, el puerto 80 de su máquina local se mapea al puerto 8080 del contenedor. Verifique el archivo `dockerfile.development` para confirmar el puerto actual. Asegúrese de reemplazar `<image-id>` por el ID de la imagen de Docker generada.
-
-4. Acceso alsSitio: Abra su navegador y vaya a `http://localhost/<path-prefix>`. El valor actual de pathPrefix está configurado en las variables de entorno. Su valor por defecto es `http://localhost/sites/agenda`.
-
 #### Paths Aliases
 
-El proyecto hace uso de la característica de **path aliases** de TypeScript. Si necesita agregar un nuevo path alias, tenga en cuenta que deberá modificar los siguientes archivos:
-
-```js
-// tsconfig.json
-
-"paths": {
-  "@/<nuevo path>/*": ["./src/<nuevo path>/*"],
-}
-```
-
-```js
-// gatsby-node.js
-
-exports.onCreateWebpackConfig = ({ loaders, actions }) => {
-  actions.setWebpackConfig({
-    resolve: {
-      alias: {
-        '@/<nuevo path>': path.resolve(__dirname, 'src/<nuevo path>'),
-      }
-    },
-    ...
-  })
-}
-```
-
-```js
-// jest.config.js
-
-moduleNameMapper: {
-  '^@/<nuevo path>/(.*)$': '<rootDir>/src/<nuevo path>/$1',
-}
-```
-
-#### Contentful
-
-Este proyecto gestiona el contenido a través del CMS Contentful. Las configuraciones relacionadas con Contentful se encuentran en `src/config/contentful/`. Además, para consumir contenido, se utiliza la característica de **GraphQL** de Gatsby.
-
-Recuerde que puede utilizar [GraphiQL](https://www.gatsbyjs.com/docs/how-to/querying-data/running-queries-with-graphiql/) para crear y probar consultas. Puede acceder a GraphiQL a través de `https://localhost:<port>/__graphql`.
-
-#### Contentful (Modelos)
-
-Cuando se integra un nuevo modelo de contenido en la aplicación, se recomienda seguir estos pasos:
-
-- **Definir el modelo**: Cree una interfaz TypeScript para el nuevo modelo en `src/types/models.ts`.
-- **Crear función adaptadora**: Implemente una función de adaptación en `src/utils/transform`, por ejemplo, transformToNewsModel. Esta función se encargará de transformar la interfaz del CMS al modelo definido anteriormente.
-- **Usar el modelo**: Utilice el modelo creado donde sea necesario en la aplicación en lugar de usar directamente las interfaces del CMS. Esto asegura coherencia y facilita el mantenimiento.
-
-#### Contentful (Fragmentos)
-
-En `src/fragments`, se encuentran fragmentos reutilizables para consultas GraphQL. Se recomienda utilizar estos fragmentos siempre que sea posible para evitar la repetición de información y hacer que el código sea más fácil de mantener.
+El proyecto hace uso de la característica de **path aliases** de TypeScript. No hace falta modificar ningún archivo para agregar nuevos paths, puesto que el alias `@` está configurado sobre el **src** e incluye todo su contenido.
 
 #### Iconos
 
@@ -345,7 +272,7 @@ Recomendaciones para el Uso de SVGs:
 
 - **Uso de currentColor**: Asegúrese de configurar los SVGs para utilizar currentColor en sus atributos de color. Esto permite que los íconos hereden el color del texto donde se utilicen, haciéndolos más flexibles y reutilizables.
 
-- **Eliminación de width y height**: Elimina los atributos width y height de los SVGs. Esto permite que los íconos se ajusten automáticamente a las dimensiones definidas por los estilos CSS, aumentando su versatilidad en diferentes partes del sitio.
+- **Eliminación de width y height**: Elimina los atributos width y height de los SVGs o recíbelos como Props. Esto permite que los íconos se ajusten automáticamente a las dimensiones definidas por los estilos CSS o los valores que pases como propiedades, aumentando su versatilidad en diferentes partes del sitio.
 
 #### Documentación
 
