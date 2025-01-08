@@ -106,7 +106,7 @@ Para ejecutar este proyecto localmente, por favor siga las instrucciones a conti
    ```sh
    npm run build
    ```
-6. Construir el archivo estático ("Compilar")
+6. Levantar / servir el archivo estático
    ```sh
    npm run start:ssg
    ```
