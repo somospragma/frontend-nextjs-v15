@@ -5,7 +5,7 @@
   </div>
 
   <p align="center">
-    Plantilla del correcto uso de NextJS 15
+    Plantilla de Aplicación Estática para NextJS 15
     <br />
     <a href="https://github.com/Saisho137/Archetype_NextJS"><strong>Explorar Repositorio</strong></a>
   </p>
@@ -266,7 +266,7 @@ El .env.local no se incluye dentro del repo puesto que tiene el valor de las var
 
 El proyecto hace uso de la característica de **path aliases** de TypeScript. No hace falta modificar ningún archivo para agregar nuevos paths, puesto que el alias `@` está configurado sobre el **src** e incluye todo su contenido.
 
-#### Iconos
+#### Icons
 
 Todos los archivos SVG deben almacenarse como componentes en `components/atoms/Icons`. Dentro de esta carpeta se encuentran los svg individualmente, y estos se puede consumir así: `<Icons.Search />`
 
@@ -274,9 +274,9 @@ Recomendaciones para el Uso de SVGs:
 
 - **Uso de currentColor**: Asegúrese de configurar los SVGs para utilizar currentColor en sus atributos de color. Esto permite que los íconos hereden el color del texto donde se utilicen, haciéndolos más flexibles y reutilizables.
 
-- **Eliminación de width y height**: Elimina los atributos width y height de los SVGs o recíbelos como Props. Esto permite que los íconos se ajusten automáticamente a las dimensiones definidas por los estilos CSS o los valores que pases como propiedades, aumentando su versatilidad en diferentes partes del sitio.
+- **Width y height**: Elimina los atributos width y height de los SVGs o recíbelos como Props. Esto permite que los íconos se ajusten automáticamente a las dimensiones definidas por los estilos CSS o los valores que pases como propiedades, aumentando su versatilidad en diferentes partes del sitio.
 
-#### App Router
+#### Rutas - App Router
 
 Esta aplicación maneja las rutas con el nuevo App Router de NextJS, la diferencia con el Page Router es que funciona con nombres reservados para los archivos.
 
@@ -289,13 +289,17 @@ Esta aplicación maneja las rutas con el nuevo App Router de NextJS, la diferenc
 - Una nueva cualidad del App Router a destacar son los `layouts`, al crear un archivo con esta palabra reservada, se crea un template que envuelve las páginas hijas (relativas a la ruta en la que se está); en el caso del **layout.tsx** en la raíz de **/app**, este define el punto de entrada html de la aplicación, ya que desde allí se crea el `<html></html>`, `<head></head>` y `<body></body>`, este archivo es fundamental y si es borrado, NextJS creará uno default al intentar arrancar la aplicación.
   En el caso de crear un **layout.tsx** dentro de alguna ruta, este definirá la estructura que envolverá cualquier página dentro de esa misma ruta, como se muestra en el ejemplo de `(Group)/dashboard/`, este layout afectará la page del mismo dashboard y de sus páginas hijas **invoices & customers**.
 
-#### Notas adicionales de la v15
+Más información [aquí](https://nextjs.org/docs/app)
 
-El enfoque de Next cambia drásticamente en su última versión, ahora es compatible con React 19 y tiene un fuerte enfoque en sus Server components, por eso, NextJS ahora funciona con SSR por default.
+#### Notas adicionales de Next-15 y React-19
 
-La configuración: **output: 'export'**, dentro de `next.config.ts`, fuerza NextJS a mantenerse como un SSG y generar un build estático con `npm run build`; que es lo buscado en este arquetipo para crear páginas estáticas; si se busca utilizar SSR, debe eliminarse esa línea del next.config y hacer las configuraciones pertinentes con Docker.
+El enfoque de Next cambia drásticamente en su última versión, ahora es compatible con React 19 y tiene un fuerte enfoque en los nuevos Server Components, por eso, NextJS ahora funciona con **SSR por default**.
 
-Para forzar que una página o componente funcione en el lado del cliente (CSR), se debe poner `'use client'` en la primera línea del archivo, esto permitirá usar Hooks y Apis del navegador como el **console.log, localStorage**, entre otras. Debido a este nuevo enfoque, no es posible combinar distintos tipos de renderizados en una misma página (SSG/SSR con CSR) como anteriormente; por eso, en este Arquetipo se da un ejemplo de cómo resolver esta problemática en: `(SSG - SSR & CSR)/home`. Resumidamente, se el **page** de la ruta se encargará de hacer las consultas o acciones que se necesitan del lado del servidor o en tiempo de compilación, como hacer prefetching o definir las meta etiquetas y se crea un componente hijo dentro de la misma ruta, este será el componente que corra en el lado del cliente y recibirá la data del padra a través de las **Props**; ya que este componente hijo usa el 'use client', podrá utilizar Hooks y las APIs del navegador.
+La configuración: **output: 'export'**, dentro de `next.config.ts`, fuerza NextJS a mantenerse como un SSG y generar un build estático con **'npm run build'**; esto es intencional, ya que este Arquetipo es para aplicaciones estáticas. Si se busca utilizar SSR, debe eliminarse esa línea del next.config y hacer las configuraciones pertinentes con Docker.
+
+Para forzar que una página o componente funcione en el lado del cliente (CSR), se debe agregar `'use client'` en la primera línea del archivo, esto permitirá usar Hooks y Apis del navegador como el **console.log, localStorage**, entre otras. Debido a este nuevo enfoque, no es posible combinar distintos tipos de renderizados en una misma página (SSG/SSR con CSR) como anteriormente; por eso, en este Arquetipo se da un ejemplo de cómo resolver este problema en: `(SSG - SSR & CSR)/home`. Resumidamente, el **page** de la ruta se encargará de hacer las consultas o acciones que se necesitan del lado del servidor o en tiempo de compilación, como hacer prefetching o definir las meta etiquetas; luego, se crea un componente hijo dentro de la misma ruta y este será el que corra en el navegador, recibirá la data del padra a través de sus **Props**. Como este componente hijo usa el 'use client', podrá utilizar Hooks y las APIs del navegador.
+
+Más información [aquí](https://nextjs.org/docs/app/building-your-application/rendering/client-components)
 
 #### Documentación
 
