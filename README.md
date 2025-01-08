@@ -37,9 +37,10 @@
             <li><a href="#importaciones">Importaciones</a></li>
             <li><a href="#linters">Linters</a></li>
             <li><a href="#estilos">Estilos</a></li>
-            <li><a href="#interfaces">Interfaces</a></li>
+            <li><a href="#interfaces--types">Interfaces & Types</a></li>
             <li><a href="#seo-y-accesibilidad">SEO y Accesibilidad</a></li>
             <li><a href="#testing">Testing</a></li>
+            <li><a href="#archivos-env">Archivos .env</a></li>
           </ul>
         </li>
         <li>
@@ -47,6 +48,8 @@
           <ul>
             <li><a href="#paths-aliases">Paths Aliases (Typescript)</a></li>
             <li><a href="#iconos">Iconos</a></li>
+            <li><a href="#rutas---app-router">Rutas - App Router</a></li>
+            <li><a href="#notas-adicionales-de-next-15-y-react-19">Notas adicionales Next & React</a></li>
             <li><a href="#documentacion">Documentación</a></li>
           </ul>
         </li>
@@ -214,7 +217,7 @@ import { Button, Image, Input } from '@/components/atoms';
 import styles from './Card.module.scss'
 ```
 
-#### Linter
+#### Linters
 
 Se utiliza ESLint para mantener los estándares de código uniformes. Además, se emplean Prettier y EditorConfig.
 
@@ -229,7 +232,7 @@ Se usan SCSS modules. Los estilos globales, variables, fuentes y otras configura
 Es fundamental que se asegure de utilizar las variables que se encuentran en el archivo `src/styles/_variables.scss`, ya que esto facilitará mantener el código y realizar modificaciones globales de estilos de manera más sencilla.
 También, si tiene fragmentos de estilos que repite constantemente, considere convertirlo en un Mixin dentro de `src/styles/_mixins_.scss`
 
-#### Interfaces / Types
+#### interfaces & types
 
 Los nombres de las interfaces y types se escriben en PascalCase.
 
@@ -254,11 +257,13 @@ npm run test
 npm run test:coverage
 ```
 
-#### **Archivos** `env`:
+#### Archivos .env:
 
 NextJs usa un archivo u otro según el ambiente en el que se encuentre corriendo (.env.local con mayor prioridad), adicionalmente, desde un pipeline se puede definir que archivo usar para cada ambiente; se usan los prefijos `NEXT_PUBLIC_` Y `NEXT_`, este último agrega otra capa de seguridad, pues su valor no puede ser accedido desde cliente (navegador).
 
-El .env.local no se incluye dentro del repo puesto que tiene el valor de las variables quemado, los otros 2 archivos tienen como valor el propio nombre de las variables entre `&`, para luego ser inyectados desde el pipeline, esta estrategia puede cambiarse por la que se considere más adecuada. (Más información [aquí][NextJsDocEnv]).
+- El .env.local no se incluye dentro del repo puesto que tiene el valor de las variables quemado, los otros 2 archivos tienen como valor el propio nombre de las variables entre `&`, para luego ser inyectados desde el pipeline, esta estrategia puede cambiarse por la que se considere más adecuada.
+
+Más información [aquí][NextJsDocEnv]
 
 ### Guías adicionales
 
