@@ -1,6 +1,6 @@
 <div align="center">
   <div>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Nextjs-logo.svg" alt="Logo" width="260" height="120">
+    <img src="https://img.shields.io/badge/-Next_JS-black?style=for-the-badge&logoColor=white&logo=nextdotjs&color=000000" alt="Logo" width="260">
     <h2 align="center">Arquetipo NextJS v15</h2>
   </div>
 
