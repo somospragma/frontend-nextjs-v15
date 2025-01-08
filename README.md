@@ -200,10 +200,6 @@ El siguiente diagrama muestra la estructura principal del proyecto, centrándose
 
 - Carpeta `utils`: Contiene las interfaces y types de la aplicación, se puede especificar más sus tipos dividiendo la carpeta en **models** (core) e **interfaces** (generales).
 
-- **Archivos** `env`: NextJs usa un archivo u otro según el ambiente en el que se encuentre corriendo (.env.local con mayor prioridad), adicionalmente, desde un pipeline se puede definir que archivo usar para cada ambiente; se usan los prefijos `NEXT_PUBLIC_` Y `NEXT_`, este último agrega otra capa de seguridad, pues su valor no puede ser accedido desde cliente (navegador).
-
-  El .env.local no se incluye dentro del repo puesto que tiene el valor de las variables quemado, los otros 2 archivos tienen como valor el propio nombre de las variables entre `&`, para luego ser inyectados desde el pipeline, esta estrategia puede cambiarse por la que se considere más adecuada. (Más información [aquí][NextJsDocEnv]).
-
 ### Importaciones
 
 Para conservar un proyecto mantenible, las importaciones deben seguir un orden consistente. Se recomienda usar imports absolutos (paths aliases) en lugar de imports relativos y utilizar archivos de barril siempre que sea posible.
@@ -258,6 +254,12 @@ npm run test
 npm run test:coverage
 ```
 
+#### **Archivos** `env`:
+
+NextJs usa un archivo u otro según el ambiente en el que se encuentre corriendo (.env.local con mayor prioridad), adicionalmente, desde un pipeline se puede definir que archivo usar para cada ambiente; se usan los prefijos `NEXT_PUBLIC_` Y `NEXT_`, este último agrega otra capa de seguridad, pues su valor no puede ser accedido desde cliente (navegador).
+
+El .env.local no se incluye dentro del repo puesto que tiene el valor de las variables quemado, los otros 2 archivos tienen como valor el propio nombre de las variables entre `&`, para luego ser inyectados desde el pipeline, esta estrategia puede cambiarse por la que se considere más adecuada. (Más información [aquí][NextJsDocEnv]).
+
 ### Guías adicionales
 
 #### Paths Aliases
@@ -273,6 +275,27 @@ Recomendaciones para el Uso de SVGs:
 - **Uso de currentColor**: Asegúrese de configurar los SVGs para utilizar currentColor en sus atributos de color. Esto permite que los íconos hereden el color del texto donde se utilicen, haciéndolos más flexibles y reutilizables.
 
 - **Eliminación de width y height**: Elimina los atributos width y height de los SVGs o recíbelos como Props. Esto permite que los íconos se ajusten automáticamente a las dimensiones definidas por los estilos CSS o los valores que pases como propiedades, aumentando su versatilidad en diferentes partes del sitio.
+
+#### App Router
+
+Esta aplicación maneja las rutas con el nuevo App Router de NextJS, la diferencia con el Page Router es que funciona con nombres reservados para los archivos.
+
+- Para crear rutas, debes crear folders con el nombre que esperas de la ruta dentro de `/app` e incluir dentro un archivo `page.tsx`, este es un nombre reservado, únicamente se renderizará una página en esa ruta con ese nombre, así que ignorará el resto de archivos dentro de la carpeta; esto es principalmente una ventaja y le da gran versatilidad al manejo de rutas, por ejemplo, ahora se puede prescindir de una carpeta **/features**, ya que se pueden guardar cualquier carpeta o archivo dentro de una ruta sin afectar su funcionamiento, siempre y cuando no se utilicen los nombres reservados como **page.tsx o layout.tsx**.
+
+- En el proyecto se dan una serie de ejemplos de rutas, lo primero que notarás son carpetas con nombres entre paréntesis `()`, esta sintaxis permite crear grupos que son ignorados por las rutas, por lo que su propósito es meramente organizativo, como es el caso de `(root)` que lo uso para agrupar los archivos de la página raíz sin afectar su funcionamiento o su URL.
+
+- Otra notación especial es el guión bajo `_`, si se utiliza antes del nombre de una carpeta, esta no se incluirá dentro de las rutas, incluso si dentro se crean archivos con los nombres reservados como **page.tsx**; como se aprecia en el ejemplo `(private)`.
+
+- Una nueva cualidad del App Router a destacar son los `layouts`, al crear un archivo con esta palabra reservada, se crea un template que envuelve las páginas hijas (relativas a la ruta en la que se está); en el caso del **layout.tsx** en la raíz de **/app**, este define el punto de entrada html de la aplicación, ya que desde allí se crea el `<html></html>`, `<head></head>` y `<body></body>`, este archivo es fundamental y si es borrado, NextJS creará uno default al intentar arrancar la aplicación.
+  En el caso de crear un **layout.tsx** dentro de alguna ruta, este definirá la estructura que envolverá cualquier página dentro de esa misma ruta, como se muestra en el ejemplo de `(Group)/dashboard/`, este layout afectará la page del mismo dashboard y de sus páginas hijas **invoices & customers**.
+
+#### Notas adicionales de la v15
+
+El enfoque de Next cambia drásticamente en su última versión, ahora es compatible con React 19 y tiene un fuerte enfoque en sus Server components, por eso, NextJS ahora funciona con SSR por default.
+
+La configuración: **output: 'export'**, dentro de `next.config.ts`, fuerza NextJS a mantenerse como un SSG y generar un build estático con `npm run build`; que es lo buscado en este arquetipo para crear páginas estáticas; si se busca utilizar SSR, debe eliminarse esa línea del next.config y hacer las configuraciones pertinentes con Docker.
+
+Para forzar que una página o componente funcione en el lado del cliente (CSR), se debe poner `'use client'` en la primera línea del archivo, esto permitirá usar Hooks y Apis del navegador como el **console.log, localStorage**, entre otras. Debido a este nuevo enfoque, no es posible combinar distintos tipos de renderizados en una misma página (SSG/SSR con CSR) como anteriormente; por eso, en este Arquetipo se da un ejemplo de cómo resolver esta problemática en: `(SSG - SSR & CSR)/home`. Resumidamente, se el **page** de la ruta se encargará de hacer las consultas o acciones que se necesitan del lado del servidor o en tiempo de compilación, como hacer prefetching o definir las meta etiquetas y se crea un componente hijo dentro de la misma ruta, este será el componente que corra en el lado del cliente y recibirá la data del padra a través de las **Props**; ya que este componente hijo usa el 'use client', podrá utilizar Hooks y las APIs del navegador.
 
 #### Documentación
 
