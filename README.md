@@ -5,7 +5,7 @@
   </div>
 
   <p align="center">
-    Plantilla de Aplicación Estática para NextJS 15
+    Plantilla de Aplicación Estática para NextJS 15 (centrado en SSG)
     <br />
     <a href="https://github.com/Saisho137/Archetype_NextJS"><strong>Explorar Repositorio</strong></a>
   </p>
