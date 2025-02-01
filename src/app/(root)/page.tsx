@@ -2,10 +2,12 @@
 
 import type { Metadata } from 'next';
 
-import { Title } from '@/components/atoms';
+import { Icons, Title } from '@/components/atoms';
 import { authService, toastService } from '@/shared/services';
 import { NUMBER_ONE, NUMBER_ZERO, NUMBERS } from '@/utils/constants';
 import { transformToCapital, transformToLowerCase, transformToNumber } from '@/utils/helpers';
+
+import styles from './page.module.scss';
 
 export const metadata: Metadata = {
   title: 'Home Page - My Static App',
@@ -24,6 +26,12 @@ export default function Home() {
   return (
     <section>
       <Title title='Root content' />
+      <div className={styles['icons-container']}>
+        <Icons.Linkedin className={styles['icons-container__icon']} width='40' height='40' />
+        <Icons.X width='25' height='25' />
+        <Icons.Facebook className={styles['icons-container__icon']} />
+        <Icons.Instagram />
+      </div>
     </section>
   );
 }
